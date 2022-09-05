@@ -1,0 +1,71 @@
+server:
+  port: 8010
+spring:
+  datasource:
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 10
+    url: jdbc:mysql://127.0.0.1:3306/tintuc?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&autoReconnect=true
+    username: tinnhanh
+    password: '}yv4r4<W!$F_Y#g7'
+    
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        show_sql: false
+        format_sql: false
+        dialect: org.hibernate.dialect.MySQL55Dialect
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+hibernate: 
+  dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  jdbc: 
+    time_zone: UTC
+  
+cdn:
+  media: https://media.docbao24h.me/
+  emedia: https://ecdn.docbao24h.me/
+  
+crawl:
+  storage-config:
+     bucket: gs://newsapp/
+     folder-url: files/
+  local-folder-url: /app/images/cms/
+  prefix-folder: dev/
+  local-folder-url-thumb: /app/images/thumb/
+  content-path-file: /app/doc-bao/crawl-engine/content
+  frontier-path-file: /app/doc-bao/crawl-engine/frontier
+  webdriver: webdriver/chromedriver
+  ffmpeg-path: /usr/bin/ffmpeg
+  config:
+    aws:
+      access_key_id: AmiLeJhtA-Hq2wafCMiC5g
+      secret_access_key: 55vVjkrqV-ZACT-5_octFw
+      s3:
+        region: us-east-1
+        bucket: r08
+        endpoint: https://s3.nextidc.net
+  
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.security: ERROR
+    vn.techlab.news: DEBUG
+  file: logs/app.log
+app:
+  website-file: /app/config/website-dev.json
+  host-server1: http://localhost:8082
+  host-server2: http://localhost:8082
+  redis:
+    article_info: 
+      host: 127.0.0.1
+      slave: 
+      port: 6379
+      max_pool: 100
+      database: 0
+config: 
+  projectId: r08

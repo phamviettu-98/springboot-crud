@@ -1,0 +1,63 @@
+server:
+  port: 8010
+spring:
+  datasource:
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+    url: jdbc:mysql://localhost:3306/tintuc
+    username: root
+    password: phamviettu
+    
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        show_sql: false
+        dialect: org.hibernate.dialect.MySQL55Dialect
+    show-sql: false
+
+cdn:
+  media: http://dev-media.docbao24h.me/
+  emedia: https://ecdn.docbao24h.me/
+  
+crawl:
+  storage-config:
+     bucket: gs://newsapp/
+     folder-url: files/
+  local-folder-url: dev/cms/
+  prefix-folder: dev/
+  content-path-file:
+  frontier-path-file: 
+  local-folder-url-thumb: thumb/
+  webdriver: webdriver/chromedriver
+  ffmpeg-path: /usr/bin/ffmpeg
+  config:
+    aws:
+      access_key_id: AmiLeJhtA-Hq2wafCMiC5g
+      secret_access_key: 55vVjkrqV-ZACT-5_octFw
+      s3:
+        region: us-east-1
+        bucket: r08
+        endpoint: https://s3.nextidc.net
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.security: DEBUG
+    vn.techlab.news: DEBUG
+  file: logs/app.log
+app:
+  website-file: C:\Users\HP\Desktop\news\news-api-cms\src\main\resources\website-prod2.json
+  host-server1: http://localhost:8082
+  host-server2: http://localhost:8082
+  redis:
+    article_info: 
+      host: 127.0.0.1
+      slave: 
+      port: 6379
+      max_pool: 100
+config: 
+  projectId: r08

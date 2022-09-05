@@ -1,0 +1,41 @@
+spring:
+  jackson:
+    mapper:
+      DEFAULT_VIEW_INCLUSION: true 
+    serialization: 
+      INDENT_OUTPUT: true
+      WRITE_DATES_AS_TIMESTAMPS: true
+      WRITE_ENUMS_USING_INDEX: true
+    deserialization:
+      FAIL_ON_IGNORED_PROPERTIES: false
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+      ACCEPT_SINGLE_VALUE_AS_ARRAY: true
+  profiles:
+    active: 'local'
+    cachePrepStmts: true
+    prepStmtCacheSize: 250
+    prepStmtCacheSqlLimit: 2048
+    useServerPrepStmts: true
+
+  jpa:
+    openInView: false
+    generate-ddl: true
+    hibernate:
+      default_batch_fetch_size: 100
+    properties:
+      hibernate.jdbc.lob.non_contextual_creation: true
+
+  data:
+    jpa:
+      repositories.enabled: true
+security:
+  jwt: 
+    token: 
+      secret-key: FPzwZepsBZ1FX52gi07xEVrmeozf84xoeo77vGVpZmDJiTcZqD3p2nsHvpIqhtuu
+      expired: 86400000
+logging:
+  level:
+    com.kid.ecotac.common: DEBUG
+    org.springframework.web: INFO
+    org.springframework.security: DEBUG
+  file: logs/app.log
